@@ -1,4 +1,10 @@
 <?php
+/**
+ * Example:
+ * 
+ * # php test.php -t --firstname=Jeremy --lastname=Heminger
+ *
+ * */
 // let's add error handling
 ini_set('display_errors', 1); 
 error_reporting(E_ALL);

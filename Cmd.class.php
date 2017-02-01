@@ -24,7 +24,7 @@ class CMD
     }
     /**
      * determines what should be run from a CMD operation
-     * @todo currently the returned array is accociative...
+     * @todo currently the returned array is associative...
      *       it might need to be keyed as ordered to call the methods in a specific order (maybe)
      * @param $method array
      * @return array
@@ -74,7 +74,7 @@ class CMD
                             $key = str_replace('=','',$key);
                             $return[$method['name']]['params'][$key] = str_replace($var,'',$flag);  
                         }
-                    }
+                    }// ./foreach($method)
                 }
                 
                 // if the flag is an input then it can be skipped at this point
@@ -82,7 +82,7 @@ class CMD
                 
                 // remove the flag prefix
                 $flg = str_replace('-','',$flag);
-          
+                
                 $fl = strlen($flg);
        
                 if($fl == 0) {
@@ -95,15 +95,17 @@ class CMD
                             $return[$method['name']]['flag'] = true;
                         }
                     }
-                }
-            }
-        }
+                }// ./$fl
+                
+            }// ./foreach($methods)
+            
+        }// ./foreach($argv)
         return $return;
     }
     /**
      * loops and runs requested methods
      * @param array
-     * @param mixed die if methid not exist or give notice
+     * @param mixed die if method not exist or give notice
      * @return void
      * */
     public static function run_methods($methods,$warning = false) {
@@ -121,7 +123,7 @@ class CMD
                     }
                 }
             }
-        }
+        }// ./foreach($methods)
     }
     /**
      * runs all the classes methods in order
